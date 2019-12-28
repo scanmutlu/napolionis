@@ -10,8 +10,8 @@ import java.util.List;
 
 @Repository
 public interface AccountRepository extends JpaRepository<Account,Long> {
-    Account findByAccountNumber(BigDecimal accountNumber);
-    List<Account> findAccountsByCustomerId(Long customerId);
+    Account findByAccountNumber(Long accountNumber);
+    List<Account> findByUserIdAndIsActiveTrue(Long userId);
 
 
 }
