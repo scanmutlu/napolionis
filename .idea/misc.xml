@@ -5,8 +5,10 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/base/pom.xml" />
-        <option value="$PROJECT_DIR$/users/pom.xml" />
         <option value="$PROJECT_DIR$/accounts/pom.xml" />
+        <option value="$PROJECT_DIR$/authorization/target/classes/META-INF/maven/com.javainuse/spring-boot-jwt/pom.xml" />
+        <option value="$PROJECT_DIR$/authorization/target/classes/META-INF/maven/com.javainuse/spring-boot-jwt/pom.properties" />
+        <option value="$PROJECT_DIR$/authorization/pom.xml" />
       </list>
     </option>
   </component>

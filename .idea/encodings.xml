@@ -2,6 +2,8 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/accounts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/authorization" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/authorization/target/classes/META-INF/maven/com.javainuse/spring-boot-jwt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/base" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/users" charset="UTF-8" />
   </component>

@@ -1,4 +1,4 @@
-package com.payday.users.model;
+package com.authorization.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.payday.base.model.BaseEntity;
@@ -27,7 +27,6 @@ public class User extends BaseEntity {
     private String email;
     @Column(name = "password")
     @NotNull
-    @JsonIgnore
     private String password;
     @Column(name = "gender")
     private String gender;

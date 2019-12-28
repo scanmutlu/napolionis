@@ -4,6 +4,7 @@ import com.payday.accounts.model.Account;
 import com.payday.accounts.model.Transaction;
 import com.payday.accounts.repository.AccountRepository;
 import com.payday.accounts.repository.TransactionRepository;
+import com.payday.accounts.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,15 +18,19 @@ public class TransactionController {
     protected Logger logger = Logger.getLogger(TransactionController.class
             .getName());
     protected TransactionRepository transactionRepository;
+    protected TransactionService transactionService;
 
     @Autowired
-    public TransactionController(TransactionRepository transactionRepository) {
+    public TransactionController(TransactionRepository transactionRepository, TransactionService transactionService) {
         this.transactionRepository = transactionRepository;
+        this.transactionService = transactionService;
     }
 
     @RequestMapping(value = "/transactions", method = RequestMethod.POST)
     public ResponseEntity< String > addTransaction(@RequestBody Transaction transaction) {
-        transactionRepository.save(transaction);
+        List<Transaction> trxList = transactionService.addTransaction(transaction);
+        if(trxList == null)
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
@@ -42,14 +47,9 @@ public class TransactionController {
     }
 
     @RequestMapping(value = "/transactions/{userId}", method = RequestMethod.GET)
-    public ResponseEntity<List<Transaction>> getTransactionByCustomerId(@PathVariable("customerId")Long customerId) {
-        List<Transaction> trxList = transactionRepository.findTransactionsByUserId(customerId);
+    public ResponseEntity<List<Transaction>> getTransactionByCustomerId(@PathVariable("userId") Long userId) {
+        List<Transaction> trxList = transactionRepository.findTransactionsByUserId(userId);
         return new ResponseEntity<>(trxList, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/transactions/{accountId}", method = RequestMethod.GET)
-    public ResponseEntity<List<Transaction>> getTransactionByAccountId(@PathVariable("accountId")Long accountId) {
-        List<Transaction> trxList = transactionRepository.findTransactionsByAccountId(accountId);
-        return new ResponseEntity<>(trxList, HttpStatus.OK);
-    }
 }
