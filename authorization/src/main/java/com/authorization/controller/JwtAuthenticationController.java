@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.authorization.service.JwtUserDetailsService;
 
 
-import com.authorization.config.JwtTokenUtil;
+import com.authorization.security.JwtTokenUtil;
 import com.authorization.model.JwtRequest;
 import com.authorization.model.JwtResponse;
 

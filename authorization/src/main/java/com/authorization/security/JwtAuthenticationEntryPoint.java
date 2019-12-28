@@ -1,4 +1,4 @@
-package com.authorization.config;
+package com.authorization.security;
 
 import java.io.IOException;
 import java.io.Serializable;
