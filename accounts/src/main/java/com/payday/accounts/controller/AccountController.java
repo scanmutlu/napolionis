@@ -28,7 +28,7 @@ public class AccountController {
     public ResponseEntity<Account> getAccountByNumber(@PathVariable("accountNumber") String accountNumber) throws AccountNotFoundException {
 
         logger.info("accounts-service byNumber() invoked: " + accountNumber);
-        Account account = accountRepository.findByAccountNumber(new Long(accountNumber));
+        Account account = accountRepository.getOne(new Long(accountNumber));
         logger.info("accounts-service byNumber() found: " + account);
 
         if (account == null)

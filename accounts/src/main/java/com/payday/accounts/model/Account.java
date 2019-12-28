@@ -6,22 +6,15 @@ import lombok.Setter;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenerationTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 public class Account extends BaseEntity {
-
-    @Column(name = "account_number")
-    @Generated(GenerationTime.INSERT)
-    @NotNull
-    private Long accountNumber;
 
     @Column(name = "balance")
     private BigDecimal balance = BigDecimal.ZERO;
