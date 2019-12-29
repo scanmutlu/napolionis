@@ -1,4 +1,4 @@
-package com.authorization.model;
+package com.payday.authorization.model;
 
 
 

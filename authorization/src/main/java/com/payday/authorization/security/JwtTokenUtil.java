@@ -1,4 +1,4 @@
-package com.authorization.security;
+package com.payday.authorization.security;
 
 import java.io.Serializable;
 import java.util.Date;

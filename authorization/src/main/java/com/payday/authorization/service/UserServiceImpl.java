@@ -1,7 +1,7 @@
-package com.authorization.service;
+package com.payday.authorization.service;
 
-import com.authorization.model.User;
-import com.authorization.repository.UserRepository;
+import com.payday.authorization.model.User;
+import com.payday.authorization.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

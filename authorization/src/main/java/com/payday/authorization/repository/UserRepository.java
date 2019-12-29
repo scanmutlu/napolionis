@@ -1,6 +1,6 @@
-package com.authorization.repository;
+package com.payday.authorization.repository;
 
-import com.authorization.model.User;
+import com.payday.authorization.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

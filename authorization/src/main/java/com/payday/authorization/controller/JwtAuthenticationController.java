@@ -1,6 +1,6 @@
-package com.authorization.controller;
+package com.payday.authorization.controller;
 
-import com.authorization.model.User;
+import com.payday.authorization.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import com.authorization.service.JwtUserDetailsService;
+import com.payday.authorization.service.JwtUserDetailsService;
 
 
-import com.authorization.security.JwtTokenUtil;
-import com.authorization.model.JwtRequest;
-import com.authorization.model.JwtResponse;
+import com.payday.authorization.security.JwtTokenUtil;
+import com.payday.authorization.model.JwtRequest;
+import com.payday.authorization.model.JwtResponse;
 
 import java.io.IOException;
 

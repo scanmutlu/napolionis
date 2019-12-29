@@ -1,11 +1,11 @@
-package com.authorization.service;
+package com.payday.authorization.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 
-import com.authorization.model.User;
-import com.authorization.repository.UserRepository;
+import com.payday.authorization.model.User;
+import com.payday.authorization.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

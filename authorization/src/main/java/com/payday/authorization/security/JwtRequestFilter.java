@@ -1,4 +1,4 @@
-package com.authorization.security;
+package com.payday.authorization.security;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.authorization.service.JwtUserDetailsService;
+import com.payday.authorization.service.JwtUserDetailsService;
 
 import io.jsonwebtoken.ExpiredJwtException;
 
