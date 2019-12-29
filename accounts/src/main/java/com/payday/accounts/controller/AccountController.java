@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @RestController
+@RequestMapping("api/v1/accounts")
 public class AccountController {
 
     protected Logger logger = Logger.getLogger(AccountController.class
@@ -24,7 +25,7 @@ public class AccountController {
         this.accountRepository = accountRepository;
     }
 
-    @RequestMapping("/accounts/{accountNumber}")
+    @RequestMapping("/{accountNumber}")
     public ResponseEntity<Account> getAccountByNumber(@PathVariable("accountNumber") String accountNumber) throws AccountNotFoundException {
 
         logger.info("accounts-service byNumber() invoked: " + accountNumber);
@@ -38,13 +39,13 @@ public class AccountController {
         }
     }
 
-    @RequestMapping(value = "/accounts/addAccount", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity< String > addAccount(@RequestBody Account account) {
             accountRepository.save(account);
             return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @RequestMapping(value = "/accounts/user/{userId}", method = RequestMethod.GET)
+    @RequestMapping(value = "user/{userId}", method = RequestMethod.GET)
     public ResponseEntity<List<Account>> getUserAccounts (@PathVariable("userId") String userId){
         List<Account> accList = accountRepository.findByUserIdAndIsActiveTrue(new Long(userId));
         if(accList == null)

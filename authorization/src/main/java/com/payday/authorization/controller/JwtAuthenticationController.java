@@ -24,6 +24,7 @@ import com.payday.authorization.model.JwtResponse;
 import java.io.IOException;
 
 @RestController
+@RequestMapping("api/v1/auth")
 @CrossOrigin
 public class JwtAuthenticationController {
 
@@ -36,7 +37,7 @@ public class JwtAuthenticationController {
 	@Autowired
 	private JwtUserDetailsService userDetailsService;
 
-	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+	@RequestMapping(value = "/signin", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
 		authenticate(authenticationRequest.getUserId(), authenticationRequest.getPassword());
@@ -49,7 +50,7 @@ public class JwtAuthenticationController {
 		return ResponseEntity.ok(new JwtResponse(token));
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public ResponseEntity<?> saveUser(@RequestBody User user) throws Exception {
 		try{
 			return ResponseEntity.ok(userDetailsService.save(user));
