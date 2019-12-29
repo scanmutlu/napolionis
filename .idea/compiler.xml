@@ -7,14 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="accounts" />
-        <module name="spring-boot-jwt (1)" />
-        <module name="base" />
         <module name="authorization" />
-        <module name="spring-boot-jwt (2) (com.javainuse)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="base" target="1.8" />
+      <module name="spring-boot-jwt (1)" target="1.5" />
       <module name="spring-boot-jwt (2)" target="1.5" />
+      <module name="spring-boot-jwt (2) (com.javainuse)" target="1.8" />
       <module name="spring-boot-jwt (3)" target="1.8" />
       <module name="spring-boot-jwt (3) (com.javainuse)" target="1.8" />
       <module name="users" target="1.8" />

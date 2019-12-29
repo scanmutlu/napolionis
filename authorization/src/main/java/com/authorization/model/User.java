@@ -1,7 +1,5 @@
 package com.authorization.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.payday.base.model.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 

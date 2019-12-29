@@ -1,6 +1,5 @@
 package com.payday.accounts.model;
 
-import com.payday.base.model.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 

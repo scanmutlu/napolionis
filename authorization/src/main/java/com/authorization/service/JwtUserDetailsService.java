@@ -1,5 +1,6 @@
 package com.authorization.service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -30,7 +31,9 @@ public class JwtUserDetailsService implements UserDetailsService {
 				new ArrayList<>());
 	}
 	
-	public User save(User user) {
+	public User save(User user) throws IOException {
+		if (user.getPassword().length() < 6)
+			throw new IOException("Password lenght must be 6 or more!");
 		user.setPassword(bcryptEncoder.encode(user.getPassword()));
 		return userRepository.save(user);
 	}

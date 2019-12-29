@@ -1,10 +1,7 @@
 package com.payday.accounts.model;
 
-import com.payday.base.model.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Generated;
-import org.hibernate.annotations.GenerationTime;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

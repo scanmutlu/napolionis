@@ -1,0 +1,65 @@
+# Docker Compose file Reference (https://docs.docker.com/compose/compose-file/)
+
+version: '3.7'
+
+# Define services
+services:
+  # App backend service
+  payday-accounts:
+    # Configuration for building the docker image for the backend service
+    build:
+      context: accounts # Use an image built from the specified dockerfile in the `polling-app-server` directory.
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    restart: always
+    depends_on:
+      - db # This service depends on mysql. Start that first.
+    environment: # Pass environment variables to the service
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3316/payday?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+      SPRING_DATASOURCE_USERNAME: payday
+      SPRING_DATASOURCE_PASSWORD: payday
+    networks: # Networks to join (Services on the same network can communicate with each other using their name)
+      - backend
+
+  # Frontend Service
+  payday-authorization:
+    # Configuration for building the docker image for the backend service
+    build:
+      context: authorization # Use an image built from the specified dockerfile in the `polling-app-server` directory.
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    restart: always
+    depends_on:
+      - db # This service depends on mysql. Start that first.
+    environment: # Pass environment variables to the service
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3316/payday?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+      SPRING_DATASOURCE_USERNAME: payday
+      SPRING_DATASOURCE_PASSWORD: payday
+    networks: # Networks to join (Services on the same network can communicate with each other using their name)
+      - backend
+
+  # Database Service (Mysql)
+  db:
+    image: mysql:8.0
+    ports:
+      - "3316:3316"
+    restart: always
+    environment:
+      MYSQL_DATABASE: payday
+      MYSQL_USER: payday
+      MYSQL_PASSWORD: payday
+      MYSQL_ROOT_PASSWORD: payday
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backend
+
+# Volumes
+volumes:
+  db-data:
+
+# Networks to be created to facilitate communication between containers
+networks:
+  backend:
